@@ -3,22 +3,20 @@
     <Metadata>
         <Identity Id="CustomWebSearch.e1540dcb-f046-492e-8b6c-6c4bd23a38ac" Version="1.2" Language="en-US" Publisher="appastoy" />
         <DisplayName>Custom Web Search</DisplayName>
-        <Description xml:space="preserve">This is a Visual Studio extension for custom web search for selected keywords in a text editor.</Description>
+        <Description xml:space="preserve">This is a Visual Studio extension for custom web search for selected keywords in a text editor. Update for Visual Studio 2019</Description>
         <MoreInfo>https://github.com/appastoy/CustomWebSearch</MoreInfo>
         <License>LICENSE.txt</License>
         <Icon>Icon.png</Icon>
     </Metadata>
     <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0, 16.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[16.0,17.0)" />
     </Installation>
     <Dependencies>
-        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
-        <Dependency Id="Microsoft.VisualStudio.MPF.15.0" DisplayName="Visual Studio MPF 15.0" d:Source="Installed" Version="[15.0]" />
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.7.2,)" />
     </Dependencies>
     <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,16.0)" DisplayName="Visual Studio core editor" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" DisplayName="Visual Studio core editor" />
     </Prerequisites>
     <Assets>
-        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
     </Assets>
 </PackageManifest>
