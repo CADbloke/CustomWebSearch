@@ -126,7 +126,10 @@ namespace CustomWebSearch
 			optionPage.SetQueryTemplateFormat(index, (QueryTemplateType)comboBox.SelectedIndex);
 			txtboxQueries[index].Text = optionPage.Queries[index].QueryFormat;
 
-            var queryData = optionPage.Queries[index];
+            OptionPageControl_Resize(sender, e);
+            return;
+
+			var queryData = optionPage.Queries[index];
             var txtboxCustomTemplateType = txtboxCustomTemplateTypes[index];
             var txtboxQuery = txtboxQueries[index];
             if (queryData.TemplateType == QueryTemplateType.Custom)
@@ -172,5 +175,39 @@ namespace CustomWebSearch
         {
             optionPage.Queries[index].CustomTemplateName = txtboxCustomTemplateTypes[index].Text;
         }
-    }
+
+		private void OptionPageControl_Resize(object sender, EventArgs e)
+        {
+            for (int i = 0; i < QueryCount; i++)
+            {
+                int totalWidth = txtboxQueries[i].Size.Width
+                               + (txtboxCustomTemplateTypes[i].Visible
+                                      ? txtboxCustomTemplateTypes[i].Size.Width + 3
+                                      : 0);
+				if (optionPage.Queries[i].TemplateType == QueryTemplateType.Custom)
+                {
+					txtboxCustomTemplateTypes[i].Size = new Size(totalWidth / 6, txtboxQueries[i].Size.Height);
+                    int newX = txtboxQueryOriginalLocationX + txtboxCustomTemplateTypes[i].Size.Width +3;
+					txtboxQueries[i].Location              = new Point(newX, txtboxQueries[i].Location.Y);
+                    txtboxQueries[i].Size                  = new Size(totalWidth - txtboxCustomTemplateTypes[i].Size.Width - 3, txtboxQueryOriginalSize.Height);
+                    txtboxCustomTemplateTypes[i].Enabled  = true;
+					txtboxCustomTemplateTypes[i].Visible  = true;
+                    if (string.IsNullOrEmpty(optionPage.Queries[i].CustomTemplateName))
+                    {
+                        optionPage.Queries[i].CustomTemplateName = "Custom";
+                    }
+
+                    txtboxCustomTemplateTypes[i].Text = optionPage.Queries[i].CustomTemplateName;
+                }
+                else
+                {
+                    txtboxQueries[i].Location             = new Point(txtboxQueryOriginalLocationX, txtboxQueries[i].Location.Y);
+                    txtboxQueries[i].Size                 = new Size(totalWidth, txtboxQueries[i].Size.Height);
+                    txtboxCustomTemplateTypes[i].Enabled = false;
+					txtboxCustomTemplateTypes[i].Visible = false;
+                    optionPage.Queries[i].CustomTemplateName     = string.Empty;
+                }
+			}
+		}
+	}
 }

@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="CustomWebSearch.e1540dcb-f046-492e-8b6c-6c4bd23a38ac" Version="1.2" Language="en-US" Publisher="appastoy" />
-        <DisplayName>Custom Web Search</DisplayName>
-        <Description xml:space="preserve">This is a Visual Studio extension for custom web search for selected keywords in a text editor. Update for Visual Studio 2019</Description>
-        <MoreInfo>https://github.com/appastoy/CustomWebSearch</MoreInfo>
+        <Identity Id="CustomWebSearch.e1540dcb-f046-492e-8b6c-6c4bd23a38ac" Version="2019.1" Language="en-US" Publisher="originally appastoy, hacked by CAD bloke" />
+        <DisplayName>Custom Web Search vs2019</DisplayName>
+        <Description xml:space="preserve">This is a Visual Studio extension for custom web search for selected keywords in a text editor. Updated for Visual Studio 2019 BY CAD bloke. Should also run in VS2017. This version also has UI hacks to make it fit the options page width</Description>
+        <MoreInfo>https://github.com/CADbloke/CustomWebSearch</MoreInfo>
         <License>LICENSE.txt</License>
         <Icon>Icon.png</Icon>
     </Metadata>
     <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[16.0,17.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[15.0,17.0)" />
     </Installation>
     <Dependencies>
         <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.7.2,)" />
